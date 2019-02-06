@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MyIntentApp</string>
+    <string name="hasil">Hasil</string>
+    <string name="pindah_activity">Pindah Activity</string>
+    <string name="ini_moveactivity">Ini MoveActivity</string>
+    <string name="pindah_activity_dengan_data">Pindah Activity Dengan Data</string>
+    <string name="data_received">data_received</string>
+    <string name="dial_number">Dial Number (Implicit Intent)</string>
+    <string name="pindah_activity_dengan_object">Pindah Activity Dengan Object</string>
+    <string name="first_name">First Name :</string>
+    <string name="last_name">Last Name :</string>
+    <string name="marks">Marks :</string>
+    <string name="add">add</string>
+    <string name="view_all_data">View All Data</string>
+    <string name="ini_adalah_data_received">Ini adalah data received</string>
+</resources>
