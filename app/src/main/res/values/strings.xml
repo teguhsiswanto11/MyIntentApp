@@ -13,4 +13,12 @@
     <string name="add">add</string>
     <string name="view_all_data">View All Data</string>
     <string name="ini_adalah_data_received">Ini adalah data received</string>
+    <string name="pindah_activity_untuk_result">Pindah Activity Untuk Result</string>
+    <string name="pilih_angka_yang_kamu_sukai">Pilih Angka yang Kamu Sukai</string>
+    <string name="_11">11</string>
+    <string name="_90">90</string>
+    <string name="_87">87</string>
+    <string name="_10">10</string>
+    <string name="_7">7</string>
+    <string name="choose">choose</string>
 </resources>

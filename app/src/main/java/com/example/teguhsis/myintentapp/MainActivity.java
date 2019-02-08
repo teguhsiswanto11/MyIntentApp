@@ -3,11 +3,13 @@ package com.example.teguhsis.myintentapp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.teguhsis.myintentapp.data.Person;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnMoveWithDataActivity;
     private Button btnDialPhone;
     private Button btnMoveWithObjectActivity;
+    private Button btnMoveForResult;
     private EditText edtName;
     private EditText edtAge;
 //   variables for data Object
@@ -24,6 +27,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText edtYourAge;
     private EditText edtYourEmail;
     private EditText edtYourCity;
+    private TextView tvResult;
+
+    private int REQUEST_CODE = 100;
 
     DataHelper myDb;
 
@@ -46,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDialPhone = (Button) findViewById(R.id.btn_dial_number);
         btnDialPhone.setOnClickListener(this);
 
+        btnMoveForResult = findViewById(R.id.btn_move_for_result);
+        btnMoveForResult.setOnClickListener(this);
+
         // read input text
         edtName = findViewById(R.id.edt_name);
         edtAge = findViewById(R.id.edt_age);
@@ -54,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edtYourAge = findViewById(R.id.edt_yourage);
         edtYourEmail = findViewById(R.id.edt_email);
         edtYourCity = findViewById(R.id.edt_city);
+
+        // result from Activity MoveForResult
+        tvResult = findViewById(R.id.tv_result);
     }
 
     @Override
@@ -113,6 +125,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
                 startActivity(dialPhoneIntent);
                 break;
+
+            case R.id.btn_move_for_result:
+                Intent moveForResult = new Intent(MainActivity.this, MoveForResultActivity.class);
+                startActivityForResult(moveForResult, REQUEST_CODE);
+                break;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == MoveForResultActivity.RESULT_CODE) {
+                int selectedValue = data.getIntExtra(MoveForResultActivity.EXTRA_SELECTED_VALUE, 0);
+                tvResult.setText(String.format("Hasil : %s", selectedValue));
+
+            }
+        }
+
     }
 }
